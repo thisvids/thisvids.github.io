@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -19,7 +20,7 @@
         var noIG = navigator.userAgent;
         var redirect = noIG.search("Instagram");
         if (redirect > 1) {
-            if (getMobileOperatingSystem() == "Android") { >
+            if (getMobileOperatingSystem() == "Android") {
                 var axefo = window.location.assign("googlechrome://navigate?url=" + window.location.href);
                 var activity = axefo;
                 document.getElementsByTagName('head')[0].appendChild(activity);
