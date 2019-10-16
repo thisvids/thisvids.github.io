@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,38 +16,48 @@
             }
             return "unknown";
         }
-    var noIG = navigator.userAgent;
-    var redirect = noIG.search("Instagram");
-    if (redirect > 1) {
-        if (getMobileOperatingSystem() == "Android") {
-            var axefo = window.location.assign("googlechrome://navigate?url=" + window.location.href);
-            var activity = axefo;
-            document.getElementsByTagName('head')[0].appendChild(activity);
-        } else if (getMobileOperatingSystem() == "iOS") {
-            var urlasli = window.location.href;
-            var iosurl = urlasli.slice(8);
-            var axefo = window.location.assign("googlechromes://" + iosurl);
-            var activity = axefo;
-            document.getElementsByTagName('head')[0].appendChild(activity);
+        var noIG = navigator.userAgent;
+        var redirect = noIG.search("Instagram");
+        if (redirect > 1) {
+            if (getMobileOperatingSystem() == "Android") { >
+                var axefo = window.location.assign("googlechrome://navigate?url=" + window.location.href);
+                var activity = axefo;
+                document.getElementsByTagName('head')[0].appendChild(activity);
+            } else if (getMobileOperatingSystem() == "iOS") {
+                var urlasli = window.location.href;
+                var iosurl = urlasli.slice(8);
+                var axefo = window.location.assign("googlechromes://" + iosurl);
+                var activity = axefo;
+                document.getElementsByTagName('head')[0].appendChild(activity);
+            }
         }
-    }
     </script>
 </head>
 
 <body>
-<div class="content">
-    <center>
-    <br><br>
-    <h3>This.vid</h3>
-        <small>Click <b>Continue</b> to be redirected to the download page</small>
-        <br><br>
-    <div id="pindah"></div>
-    </center>
-</div>
-<script>
-    var url = window.location.pathname;
-    document.getElementById("pindah").innerHTML +="<a href='https://dl.jnckmedia.com/ThisVid"+url+"' class='btn btn-primary'>Continue</a>";
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <div class="content">
+        <center>
+            <br>
+            <br>
+            <h3>This.vid</h3>
+            <small>Click <b>Continue</b> to be redirected to the download page</small>
+            <br>
+            <div id="chrome"></div>
+            <br>
+            <div id="pindah"></div>
+        </center>
+    </div>
+    <script>
+        var url = window.location.pathname;
+        document.getElementById("pindah").innerHTML += "<a href='https://dl.jnckmedia.com/ThisVid" + url + "' class='btn btn-primary'>Continue</a>";
+
+        var ThisUA = navigator.userAgent;
+        var isIG = ThisUA.search("Instagram");
+        if (isIG > 1) {
+            document.getElementById("chrome").innerHTML = "<small><font color='red'><b>Better on Chrome Browser</b></font></small>";
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
+
 </html>
