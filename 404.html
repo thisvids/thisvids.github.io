@@ -49,13 +49,28 @@
         </center>
     </div>
     <script>
+        function getMobileOperatingSystem() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (/android/i.test(userAgent)) {
+                return "Android";
+            }
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return "iOS";
+            }
+            return "unknown";
+        }
+        
         var url = window.location.pathname;
         document.getElementById("pindah").innerHTML += "<a href='https://dl.jnckmedia.com/ThisVid" + url + "' class='btn btn-primary'>Continue</a>";
 
         var ThisUA = navigator.userAgent;
         var isIG = ThisUA.search("Instagram");
-        if (isIG > 1) {
-            document.getElementById("chrome").innerHTML = "<small><font color='red'><b>Better on Chrome Browser</b></font></small>";
+        if (getMobileOperatingSystem() == "iOS") {
+            document.getElementById("chrome").innerHTML = "<small><font color='red'><b>Hi iOS user<br>You can download the files using Documents by Readdle</b></font></small>";
+        } else {
+            if (isIG > 1) {
+                document.getElementById("chrome").innerHTML = "<small><font color='red'><b>Better on Chrome Browser</b></font></small>";
+            }
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
