@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-    <title>Eve My Luv</title>
+    <title>My Love</title>
     <script type="text/javascript">
         function ucwords (str) {
             return (str + '')
@@ -22,6 +22,7 @@
         var nama = url.replace("/", "");
         var jeneng = decodeURIComponent(nama);
         document.getElementById("nama").innerHTML = ucwords(jeneng);
+        document.title = "My Love " + ucwords(jeneng);
 
         function f1(){
             $('#pilih').hide();
