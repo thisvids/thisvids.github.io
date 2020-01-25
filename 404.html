@@ -32,6 +32,13 @@
             }
             return "unknown";
         }
+
+        function getIOSVersion() {
+            const ua = navigator.userAgent;
+            if (/(iPhone|iPod|iPad)/i.test(ua)) {
+                return ua.match(/OS [\d]+/i)[0].substr(3).split('_').map(n => parseInt(n));
+            }
+        }
         
         var url = window.location.pathname;
         document.getElementById("pindah").innerHTML += "<a href='https://dl.jnckmedia.com/ThisVid" + url + "' class='btn btn-primary'>Continue</a>";
@@ -40,7 +47,11 @@
         var isIG = ThisUA.search("Instagram");
         if (isIG > 1) {
             if (getMobileOperatingSystem() == "iOS") {
-                document.getElementById("chrome").innerHTML = "<small><font color='red'><b>Hi iOS user<br>You can download the files using<br>\"Documents by Readdle\" on the App Store</b></font></small>";
+                if(getIOSVersion() >= 13){
+                    document.getElementById("chrome").innerHTML = "<small><font color='red'><b>Hello. for iOS 13 and up, you can download using Safari or Chrome</b></font></small>";
+                } else {
+                    document.getElementById("chrome").innerHTML = "<small><font color='red'><b>Hi, you're using iOS under 13<br>You can download the files using<br>\"Documents by Readdle\" on the App Store</b></font></small>";
+                }
             } else {
                 document.getElementById("chrome").innerHTML = "<small><font color='red'><b>You can\'t download here, open in Chrome Browser</b></font></small>";
             }
