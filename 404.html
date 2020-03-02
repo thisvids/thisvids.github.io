@@ -43,6 +43,9 @@
         var url = window.location.pathname;
         document.getElementById("pindah").innerHTML += "<a href='https://dl.jnckmedia.com/ThisVid" + url + "' class='btn btn-primary'>Continue</a>";
 
+        var yusernem = url.replace(/[^a-zA-Z0-9]/g, "");
+        document.title = yusernem + "'s downloads by @this.vid";
+
         var ThisUA = navigator.userAgent;
         var isIG = ThisUA.search("Instagram");
         if (isIG > 1) {
